@@ -1,6 +1,7 @@
 package datetimeapi;
 
 import java.time.*;
+import java.util.Date;
 
 // TODO: 31.03.2021 14.1
 public class Main {
@@ -38,7 +39,24 @@ public class Main {
         System.out.println(zonedDateTime);
         System.out.println(ZoneId.getAvailableZoneIds());
 
+        // TODO: 31.03.2021 Instant
+        Date date = new Date();
+        Instant instantDate = date.toInstant();
+        localDateTime = LocalDateTime.ofInstant(instantDate, ZoneId.systemDefault());
+        localDateTime = instantDate.atZone(ZoneId.systemDefault()).toLocalDateTime();
+        System.out.println(localDateTime);
 
+        System.out.println(getLocalTime(new Date()));
+
+    }
+
+    static LocalTime getLocalTime(Date date) {
+        Instant instantTime = date.toInstant();
+        LocalTime localTime = instantTime.atZone(ZoneId.systemDefault()).toLocalTime();
+        return localTime;
+
+//        return LocalTime.ofInstant(date.toInstant(),ZoneId.systemDefault());
+//        return (date.toInstant()).atZone(ZoneId.systemDefault()).toLocalTime();
     }
 
 
