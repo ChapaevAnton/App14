@@ -3,7 +3,8 @@ package lambda;
 import java.util.function.Supplier;
 
 @FunctionalInterface
-interface Worker {
+
+public interface Worker {
 
     int CONST = 1;
     String STR = "str";
