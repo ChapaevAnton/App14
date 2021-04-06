@@ -5,15 +5,16 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class MyPath {
 
-    public static void main(String[] args) throws URISyntaxException, MalformedURLException {
+    public static void main(String[] args) throws URISyntaxException, IOException {
 
 
-        Path filePath = Paths.get("C:\\SKILLFACTORY\\TEMP\\test.txt");
+        Path filePath = Paths.get("D:\\MYDEV\\SKILLFACTORY\\TEST\\file1.txt");
         Path filePath3 = Paths.get("\\TEMP\\test.txt");
         Path dirPath = Paths.get("C:\\SKILLFACTORY\\TEMP\\");
 
@@ -53,11 +54,17 @@ public class MyPath {
 
 
         try {
-            System.out.println(Paths.get("C:\\SKILLFACTORY\\TEMP\\test.txt").toRealPath());
-            System.out.println(Paths.get("..\\test.txt").toRealPath());
+            System.out.println(filePath.toRealPath());
+            System.out.println(Paths.get("..\\TEST\\file1.txt").toRealPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println(Files.exists(filePath));
+
+        if(Files.notExists(Paths.get("..\\TEST\\TMP"))) Files.createDirectory(Paths.get("..\\TEST\\TMP"));
+
+        Files.createDirectories(Paths.get("..\\TEST\\TMP\\1\\2\\3"));
 
     }
 
