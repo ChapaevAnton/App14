@@ -66,7 +66,7 @@ public class SaveFile {
             readerFile = Files.newBufferedReader(fileRead, StandardCharsets.UTF_8);
             String readLine;
             while ((readLine = readerFile.readLine()) != null) {
-                buffered.add(readLine);
+                buffered.add(readLine + "\n");
             }
 
         } catch (IOException err) {
